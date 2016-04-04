@@ -44,12 +44,12 @@
 #
 class basicpuppet {
 
-  file { "/tmp/testfile":
-      ensure => "present",
-      owner => "root",
-      group => "root",
-      mode => "664",
-      content => "File Created by Puppet for CD Pipeline",
+  file { '/tmp/testfile':
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0664',
+      content => 'File Created by Puppet for CD Pipeline',
   }
 
   # rpm -qa | grep -i httpd
@@ -59,8 +59,8 @@ class basicpuppet {
 
   # chkconfig --list | grep http
   service {'httpd':
-    ensure => 'running',
-    require => Package["httpd"],
+    ensure  => 'running',
+    require => Package['httpd'],
   }
 
 }
